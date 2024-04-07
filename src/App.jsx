@@ -9,7 +9,7 @@ import Projects from "./components/Projects";
 function App() {
   return (
     <div
-      className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden w-full bg-theme-1 text-theme-6
+      className="pt-[2rem] lg:pt-[2rem] overflow-hidden w-full bg-theme-1 text-theme-6
     flex flex-col justify-center items-center "
     >
       <Header />

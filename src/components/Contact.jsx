@@ -6,6 +6,8 @@ import Button from "./Button";
 import emailjs from "emailjs-com";
 import MailModal from "./MailModal";
 import FillEmail from "./FillEmail";
+import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import { useEffect } from "react";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -16,6 +18,25 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
   const [fill, setFill] = useState(false);
   const [mailName, setMailName] = useState("");
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+
+      if (scrollTop > 50) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleModal = () => {
     setSent(!sent);
@@ -90,7 +111,7 @@ export default function Contact() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
           <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
             <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-              <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1  lg:w-1/2">
+              <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden   lg:w-1/2">
                 <motion.img
                   viewport={{ once: true }}
                   initial={{ opacity: 0 }}
@@ -150,7 +171,7 @@ export default function Contact() {
                     <motion.input
                       whileFocus={{
                         margin: 10,
-                        scale: [1.3, 1.1],
+                        scale: [1.3, 1],
                         transition: {
                           type: "spring",
                           stiffness: 200,
@@ -178,7 +199,7 @@ export default function Contact() {
                     <motion.input
                       whileFocus={{
                         margin: 10,
-                        scale: [1.3, 1.1],
+                        scale: [1.3, 1],
                         transition: {
                           type: "spring",
                           stiffness: 200,
@@ -206,7 +227,7 @@ export default function Contact() {
                     <motion.input
                       whileFocus={{
                         margin: 10,
-                        scale: [1.3, 1.1],
+                        scale: [1.3, 1],
                         transition: {
                           type: "spring",
                           stiffness: 200,
@@ -234,7 +255,7 @@ export default function Contact() {
                     <motion.input
                       whileFocus={{
                         margin: 10,
-                        scale: [1.3, 1.1],
+                        scale: [1.3, 1],
                         transition: {
                           type: "spring",
                           stiffness: 200,
@@ -262,7 +283,7 @@ export default function Contact() {
                     <motion.textarea
                       whileFocus={{
                         margin: 10,
-                        scale: [1.3, 1.1],
+                        scale: [1.3, 1],
                         transition: {
                           type: "spring",
                           stiffness: 200,

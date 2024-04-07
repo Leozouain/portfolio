@@ -28,8 +28,10 @@ const Header = () => {
 
   const handleMenu = (item) => {
     if (menuOpen) {
-      const href = item.replace("#", "");
-      scroller.scrollTo(href, { smooth: true, duration: 0.3 });
+      if (item) {
+        const href = item.replace("#", "");
+        scroller.scrollTo(href, { smooth: true, duration: 0.3 });
+      }
       setMenuOpen(false);
       enablePageScroll();
     } else {
@@ -48,7 +50,9 @@ const Header = () => {
         scrolling ? "bg-theme-2 opacity-85 " : "bg-theme-3"
       } transition-all duration-1000`}
       >
-        <div className="md:w-1/5 logo text-3xl md:text-4xl">LeoZouain</div>
+        <a href="#hero" className="md:w-1/5 logo text-3xl md:text-4xl">
+          LeoZouain
+        </a>
         <div className=" gap-5 hidden md:flex">
           {nav.map((item, i) => (
             <motion.div
@@ -80,11 +84,11 @@ const Header = () => {
         {/* mobile */}
       </nav>
       <button
-        onClick={handleMenu}
+        onClick={() => handleMenu()}
         className="md:hidden fixed top-0 right-0 bg-purple-500   h-[4rem] w-[4rem] z-[51]
       rounded-2xl text-theme-3"
       >
-        X
+        {menuOpen ? "X" : "="}
       </button>
       <motion.nav
         initial={{ height: 0, width: 0 }}

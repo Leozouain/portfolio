@@ -21,7 +21,7 @@ const Projects = () => {
             delay: 0.2,
           },
         }}
-        className="h2"
+        className="h2 w-full flex justify-center lg:pt-6  "
       >
         My Projects
       </motion.h2>
@@ -41,16 +41,20 @@ const Projects = () => {
                 delay: 0.4,
               },
             }}
-            className="text-2xl pt-5 "
+            className="text-2xl pt-5 h2"
           >
             {item.title}
           </motion.h2>
           <div className="flex  max-w-[77.5rem] xl:max-w-[87.5rem] overflow-hidden">
             <div
-              className="flex flex-col md:flex-row h-full w-screen justify-center 
-        items-center mb-10"
+              className={`flex flex-col lg:flex-row h-full w-screen justify-center items-center mb-10 ${
+                i % 2 === 0 ? "lg:flex-row-reverse" : ""
+              }`}
             >
-              <div className="w-[80%]  h-full flex  items-center md:px-[6rem]  py-5">
+              <div
+                className="w-[80%]  h-full flex  items-center lg:px-[3rem] 
+               py-5"
+              >
                 <motion.div
                   viewport={{ once: true }}
                   initial={{ opacity: 0, x: -100 }}
@@ -111,9 +115,11 @@ const Projects = () => {
                   <Button target live={item.live} logo={website}>
                     Website
                   </Button>
-                  <Button target github={item.github} logo={github}>
-                    GitHub
-                  </Button>
+                  {item.github !== null && (
+                    <Button target github={item.github} logo={github}>
+                      GitHub
+                    </Button>
+                  )}
                 </motion.div>
               </div>
             </div>

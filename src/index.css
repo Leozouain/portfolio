@@ -12,8 +12,6 @@ h1 {
 
 h2 {
   font-family: "Prompt", sans-serif;
-  font-weight: 100;
-  font-style: normal;
 }
 
 h3,
@@ -22,15 +20,22 @@ p {
 }
 
 .h1 {
-  @apply tracking-wider font-[900] leading-relaxed;
+  @apply tracking-wider font-[900] leading-relaxed text-[2.5rem] md:text-[3.5rem];
 }
 
 .h2 {
-  @apply text-4xl tracking-wide leading-normal font-[400];
+  @apply text-4xl tracking-wide leading-normal font-[400] text-[2rem] md:text-[2.5rem];
 }
 
 .h3 {
-  @apply leading-relaxed tracking-wide;
+  @apply leading-relaxed tracking-wide text-[1rem] md:text-[1.5rem] text-theme-4;
+}
+.h4 {
+  @apply leading-relaxed tracking-wide text-[1rem] md:text-[1.5rem];
+}
+
+.small {
+  @apply text-[0.8rem] md:text-[1rem];
 }
 
 .logo {
