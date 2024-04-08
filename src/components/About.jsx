@@ -88,8 +88,7 @@ const About = () => {
               <p>
                 Hello! My name is Leonardo Zouain, and I'm a FrontEnd Developer.
                 I graduated with honors from the NuCamp Bootcamp and continue to
-                pursue self-learning. Currently, I work in the graphics area at
-                Tilly's.
+                pursue self-learning.
               </p>
               <br />
               <p>

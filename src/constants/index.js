@@ -4,6 +4,7 @@ import github from '../assets/github.png'
 import html from '../assets/html.png'
 import brain from '../assets/brain.gif'
 import flydrone from '../assets/flydrone.gif'
+import aigram from '../assets/AiGram.gif'
 
 import react from '../assets/react.png'
 
@@ -64,7 +65,7 @@ export const projects = [
 
         title: 'Brainwave',
         text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat molestiae explicabo mollitia vitae voluptates. Repellat dolorum fugit temporibus eos corrupti qui sint explicabo consequuntur excepturi exercitationem voluptate ducimus aliquid, dolorem similique sed! Facere, quis alias?',
-        techs: ['React', 'Tailwind'],
+        techs: ['React', 'Tailwind', 'Framer-Motion'],
         img: brain,
         github: 'https://github.com/Leozouain/brainwave',
         live: 'https://brainwave-lake.vercel.app/'
@@ -76,24 +77,16 @@ export const projects = [
         techs: ['React', 'Tailwind'],
         img: flydrone,
         github: null,
-        live: 'https://brainwave-lake.vercel.app/'
+        live: 'https://www.flydronedf.com.br/'
     },
     {
 
-        title: 'Brainwave',
-        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat molestiae explicabo mollitia vitae voluptates. Repellat dolorum fugit temporibus eos corrupti qui sint explicabo consequuntur excepturi exercitationem voluptate ducimus aliquid, dolorem similique sed! Facere, quis alias?',
-        techs: ['React', 'Tailwind'],
-        img: brain,
-        github: 'https://github.com/Leozouain/brainwave',
-        live: 'https://brainwave-lake.vercel.app/'
+        title: 'AiGram Gallery',
+        text: "AiGram Gallery is an AI-powered image gallery platform that enables users to upload, edit, and share their AI-generated images. With seamless integration with the World News API, users can also stay updated on the latest news and developments in artificial intelligence. The platform's central focus is to showcase the creativity and innovation sparked by AI-driven image creation tools, while fostering a collaborative community of AI enthusiasts.2",
+        techs: ['React', 'Tailwind', 'World News API '],
+        img: aigram,
+        github: 'https://github.com/Leozouain/aigramgallery',
+        live: 'https://aigramgallery.vercel.app/'
     },
-    {
 
-        title: 'Brainwave',
-        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat molestiae explicabo mollitia vitae voluptates. Repellat dolorum fugit temporibus eos corrupti qui sint explicabo consequuntur excepturi exercitationem voluptate ducimus aliquid, dolorem similique sed! Facere, quis alias?',
-        techs: ['React', 'Tailwind'],
-        img: brain,
-        github: 'https://github.com/Leozouain/brainwave',
-        live: 'https://brainwave-lake.vercel.app/'
-    },
 ]

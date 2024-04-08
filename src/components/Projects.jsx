@@ -70,7 +70,7 @@ const Projects = () => {
                   <h3 className="h3">{item.text}</h3>
                   <div className="flex gap-5 w-full justify-center pt-5 h3">
                     {item.techs.map((tech, i) => (
-                      <span key={i}>{tech}</span>
+                      <p key={i}>{tech}</p>
                     ))}
                   </div>
                 </motion.div>
