@@ -88,7 +88,16 @@ const Header = () => {
         className="md:hidden fixed top-0 right-0 bg-purple-500   h-[4rem] w-[4rem] z-[51]
       rounded-2xl text-theme-3"
       >
-        {menuOpen ? "X" : "="}
+        <div
+          className={`w-full h-full  rounded-full flex justify-center items-center
+        flex-col leading-none gap-1 ${
+          menuOpen ? "rotate-[90deg]" : ""
+        } delay-[0.1s] transition-all`}
+        >
+          <p className="w-[50%] bg-theme-6 h-1 rounded-full "></p>
+          <p className="w-[50%] bg-theme-6 h-1 rounded-full"></p>
+          <p className="w-[50%] bg-theme-6 h-1 rounded-full"></p>
+        </div>
       </button>
       <motion.nav
         initial={{ height: 0, width: 0 }}
@@ -126,12 +135,12 @@ const Header = () => {
                 },
               }}
               key={i}
-              className="flex justify-center items-center my-3 "
+              className="md:hidden flex justify-center items-center my-3 "
             >
               <a
                 // href={item.url}
                 onClick={() => handleMenu(item.url)}
-                className={"h2 text-theme-4"}
+                className="h2 text-theme-4 cursor-pointer hover:scale-110 transition-all"
               >
                 {item.name}
               </a>

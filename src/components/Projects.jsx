@@ -48,7 +48,7 @@ const Projects = () => {
           <div className="flex  max-w-[77.5rem] xl:max-w-[87.5rem] overflow-hidden">
             <div
               className={`flex flex-col lg:flex-row h-full w-screen justify-center items-center mb-10 ${
-                i % 2 === 0 ? "lg:flex-row-reverse" : ""
+                i % 2 !== 0 ? "lg:flex-row-reverse" : ""
               }`}
             >
               <div

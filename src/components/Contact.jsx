@@ -66,10 +66,10 @@ export default function Contact() {
     };
     emailjs
       .send(
-        "leozouainportfolio",
-        "template_hy4nwdd",
+        import.meta.env.VITE_NAME,
+        import.meta.env.VITE_TEMPLATE,
         templateParams,
-        "-rMscC6DUsnSr7yeH"
+        import.meta.env.VITE_KEY
       )
       .then(
         // eslint-disable-next-line no-unused-vars
@@ -180,6 +180,8 @@ export default function Contact() {
                       }}
                       onChange={(e) => setName(e.target.value)}
                       type="text"
+                      required
+                      pattern="[A-Za-z]{3,}"
                       value={name}
                       name="first-name"
                       id="first-name"
@@ -208,6 +210,8 @@ export default function Contact() {
                       }}
                       onChange={(e) => setLastName(e.target.value)}
                       type="text"
+                      required
+                      pattern="[A-Za-z]{3,}"
                       value={lastName}
                       name="last-name"
                       id="last-name"
@@ -236,6 +240,8 @@ export default function Contact() {
                       }}
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
+                      required
+                      pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
                       name="email"
                       id="email"
                       value={email}
@@ -264,6 +270,7 @@ export default function Contact() {
                       }}
                       onChange={(e) => setPhone(e.target.value)}
                       type="tel"
+                      pattern="/^\(\d{3}\)\d{3}-\d{4}$/"
                       name="phone-number"
                       id="phone-number"
                       value={phone}
