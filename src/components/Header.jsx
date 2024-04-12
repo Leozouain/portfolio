@@ -85,18 +85,28 @@ const Header = () => {
       </nav>
       <button
         onClick={() => handleMenu()}
-        className="md:hidden fixed top-0 right-0 bg-purple-500   h-[4rem] w-[4rem] z-[51]
-      rounded-2xl text-theme-3"
+        className={`md:hidden fixed top-0 right-0 bg-purple-500   h-[4rem] w-[4rem] z-[51]
+      rounded-2xl text-theme-3
+      ${scrolling ? "bg-theme-3  " : "bg-theme-6"}`}
       >
         <div
           className={`w-full h-full  rounded-full flex justify-center items-center
         flex-col leading-none gap-1 ${
           menuOpen ? "rotate-[90deg]" : ""
-        } delay-[0.1s] transition-all`}
+        } delay-[0.1s] transition-all `}
         >
-          <p className="w-[50%] bg-theme-6 h-1 rounded-full "></p>
-          <p className="w-[50%] bg-theme-6 h-1 rounded-full"></p>
-          <p className="w-[50%] bg-theme-6 h-1 rounded-full"></p>
+          <p
+            className={`w-[50%]  h-1 rounded-full 
+          ${scrolling ? "bg-theme-6  " : "bg-theme-3"}`}
+          />
+          <p
+            className={`w-[50%]  h-1 rounded-full 
+          ${scrolling ? "bg-theme-6  " : "bg-theme-3"}`}
+          />
+          <p
+            className={`w-[50%]  h-1 rounded-full 
+          ${scrolling ? "bg-theme-6  " : "bg-theme-3"}`}
+          />
         </div>
       </button>
       <motion.nav
@@ -109,8 +119,10 @@ const Header = () => {
             ease: easeIn,
           },
         }}
-        className={`md:hidden bg-theme-2    w-[80vw] flex-col top-0 right-0 z-[50]
-        ${menuOpen ? "fixed" : "hidden"} rounded-l-3xl`}
+        className={`md:hidden     w-[80vw] flex-col top-0 right-0 z-[50]
+        ${menuOpen ? "fixed" : "hidden"} rounded-l-3xl ${
+          scrolling ? "bg-theme-2  " : "bg-theme-3"
+        }`}
       >
         <motion.div
           initial={{ opacity: 0, marginTop: "-50%" }}
