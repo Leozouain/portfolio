@@ -6,7 +6,6 @@ import Button from "./Button";
 import emailjs from "emailjs-com";
 import MailModal from "./MailModal";
 import FillEmail from "./FillEmail";
-import { useEffect } from "react";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -17,25 +16,6 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
   const [fill, setFill] = useState(false);
   const [mailName, setMailName] = useState("");
-  // const [scrolling, setScrolling] = useState(false);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollTop = window.pageYOffset;
-
-  //     if (scrollTop > 50) {
-  //       setScrolling(true);
-  //     } else {
-  //       setScrolling(false);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   const handleModal = () => {
     setSent(!sent);

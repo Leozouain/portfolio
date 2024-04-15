@@ -63,15 +63,6 @@ export const nav = [
 export const projects = [
     {
 
-        title: 'Brainwave',
-        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat molestiae explicabo mollitia vitae voluptates. Repellat dolorum fugit temporibus eos corrupti qui sint explicabo consequuntur excepturi exercitationem voluptate ducimus aliquid, dolorem similique sed! Facere, quis alias?',
-        techs: ['React', 'Tailwind', 'Framer-Motion'],
-        img: brain,
-        github: 'https://github.com/Leozouain/brainwave',
-        live: 'https://brainwave-lake.vercel.app/'
-    },
-    {
-
         title: 'Fly Drone DF',
         text: " Fly Drone DF was a freelance project aimed at creating a website for a company specializing in aerial imagery through drones. The goal was to establish an online presence to reach new clients, provide a virtual point of contact, and effectively showcase the company's services.The website was designed to offer a seamless user experience while conveying the company's brand message.",
         techs: ['React', 'Tailwind'],
@@ -87,6 +78,15 @@ export const projects = [
         img: aigram,
         github: 'https://github.com/Leozouain/aigramgallery',
         live: 'https://aigramgallery.vercel.app/'
+    },
+    {
+
+        title: 'Brainwave',
+        text: 'A responsive landing page website, based on UI8.net Figma design, seamlessly combines React, Tailwind CSS and Framer-Motion. It features subtle animations, a user-friendly contact form, and responsive layouts. The result is a visually appealing website that caters to various devices.',
+        techs: ['React', 'Tailwind', 'Framer-Motion'],
+        img: brain,
+        github: 'https://github.com/Leozouain/brainwave',
+        live: 'https://brainwave-lake.vercel.app/'
     },
 
 ]
