@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer id="footer ">
-      <div id="footer" className="w-screen h-[7rem] bg-theme-">
+      <div id="footer" className="w-screen  bg-theme-">
         <div className="w-full flex justify-center py-2 bg-theme-3">
           <a
             target="_blank"
@@ -53,7 +53,7 @@ const Footer = () => {
             />
           </a>
         </div>
-        <p className="w-full flex justify-center items-center py-0 group">
+        <p className="w-full flex justify-center items-center py-0 group flex-wrap">
           “
           <a target="_blank" href="https://github.com/Leozouain">
             LeoZouain
