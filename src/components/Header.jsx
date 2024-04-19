@@ -50,7 +50,13 @@ const Header = () => {
         scrolling ? "bg-theme-2 opacity-85 " : "bg-theme-3"
       } transition-all duration-1000`}
       >
-        <a href="#hero" className="md:w-1/5 logo text-3xl md:text-4xl">
+        <a
+          href="#hero"
+          className={`md:w-1/5 logo text-3xl md:text-4xl bg-none 
+        ${
+          scrolling ? "bg-theme-2 opacity-85 " : "bg-theme-3"
+        } transition-all duration-1000`}
+        >
           LeoZouain
         </a>
         <div className=" gap-5 hidden md:flex">
