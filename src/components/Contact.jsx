@@ -61,6 +61,8 @@ export default function Contact() {
       await setFill(!fill);
       return;
     }
+
+    // Criar o objeto templateParams após as operações de atualização de estado
     const templateParams = {
       from_name: name,
       last_name: lastName,
@@ -68,6 +70,7 @@ export default function Contact() {
       message: msg,
       email: email,
     };
+
     try {
       const res = await emailjs.send(
         import.meta.env.VITE_NAME,
@@ -187,6 +190,7 @@ export default function Contact() {
                       onChange={(e) => setTempName(e.target.value)}
                       type="text"
                       required
+                      placeholder="Min 3 Characters"
                       value={tempName}
                       name="first-name"
                       id="first-name"
@@ -216,6 +220,7 @@ export default function Contact() {
                       onChange={(e) => setTempLastName(e.target.value)}
                       type="text"
                       required
+                      placeholder="Min 3 Characters"
                       value={tempLastName}
                       name="last-name"
                       id="last-name"
@@ -245,6 +250,7 @@ export default function Contact() {
                       onChange={(e) => setTempEmail(e.target.value)}
                       type="email"
                       required
+                      placeholder="your@email.com"
                       name="email"
                       id="email"
                       value={tempEmail}
@@ -276,6 +282,7 @@ export default function Contact() {
                       name="phone-number"
                       id="phone-number"
                       value={tempPhone}
+                      placeholder="optional"
                       autoComplete="tel"
                       className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-n-3 sm:text-sm sm:leading-6"
                     />
@@ -302,6 +309,8 @@ export default function Contact() {
                       onChange={(e) => setTempMsg(e.target.value)}
                       name="message"
                       id="message"
+                      required
+                      placeholder="Enter your message here"
                       value={tempMsg}
                       rows={4}
                       className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-n-3 sm:text-sm sm:leading-6"
