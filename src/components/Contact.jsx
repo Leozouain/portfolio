@@ -6,6 +6,7 @@ import Button from "./Button";
 import emailjs from "emailjs-com";
 import MailModal from "./MailModal";
 import FillEmail from "./FillEmail";
+import validator from "validator";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -17,6 +18,12 @@ export default function Contact() {
   const [fill, setFill] = useState(false);
   const [mailName, setMailName] = useState("");
 
+  const [tempName, setTempName] = useState("");
+  const [tempLastName, setTempLastName] = useState("");
+  const [tempEmail, setTempEmail] = useState("");
+  const [tempPhone, setTempPhone] = useState("");
+  const [tempMsg, setTempMsg] = useState("");
+
   const handleModal = () => {
     setSent(!sent);
   };
@@ -24,16 +31,34 @@ export default function Contact() {
     setFill(!fill);
   };
 
-  const handleEmail = (e) => {
+  const handleEmail = async (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(name);
-    console.log(lastName);
-    console.log(phone);
-    console.log(msg);
 
-    if (name === "" || lastName === "" || email === "" || msg === "") {
-      setFill(!fill);
+    // Fields Validation
+    const nameValid = validator.isLength(tempName, { min: 3 });
+    const lastNameValid = validator.isLength(tempLastName, { min: 3 });
+    const emailValid = validator.isEmail(tempEmail);
+    const phoneValid = validator.isMobilePhone(tempPhone, ["en-US", "en-CA"]);
+    const msgValid = validator.isLength(tempMsg, { min: 5 });
+
+    if (nameValid) {
+      await setName(tempName);
+    }
+    if (lastNameValid) {
+      await setLastName(tempLastName);
+    }
+    if (emailValid) {
+      await setEmail(tempEmail);
+    }
+    if (phoneValid) {
+      await setPhone(tempPhone);
+    }
+    if (msgValid) {
+      await setMsg(tempMsg);
+    }
+
+    if (!nameValid || !lastNameValid || !emailValid || !msgValid) {
+      await setFill(!fill);
       return;
     }
     const templateParams = {
@@ -43,29 +68,31 @@ export default function Contact() {
       message: msg,
       email: email,
     };
-    emailjs
-      .send(
+    try {
+      const res = await emailjs.send(
         import.meta.env.VITE_NAME,
         import.meta.env.VITE_TEMPLATE,
         templateParams,
         import.meta.env.VITE_KEY
-      )
-      .then(
-        // eslint-disable-next-line no-unused-vars
-        (res) => {
-          setEmail(true);
-          setMailName(name);
-          setSent(true);
-          setName("");
-          setLastName("");
-          setEmail("");
-          setPhone("");
-          setMsg("");
-        },
-        (err) => {
-          console.log("ERR", err);
-        }
       );
+
+      setEmail(true);
+      setMailName(name);
+      setSent(true);
+      setName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setMsg("");
+      setTempName("");
+      setTempLastName("");
+      setTempEmail("");
+      setTempPhone("");
+      setTempMsg("");
+      console.log(name, lastName, email, phone, msg);
+    } catch (err) {
+      console.log("ERR", err);
+    }
   };
 
   return (
@@ -157,11 +184,10 @@ export default function Contact() {
                           damping: 10,
                         },
                       }}
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e) => setTempName(e.target.value)}
                       type="text"
                       required
-                      pattern="[A-Za-z]{3,}"
-                      value={name}
+                      value={tempName}
                       name="first-name"
                       id="first-name"
                       autoComplete="given-name"
@@ -187,11 +213,10 @@ export default function Contact() {
                           damping: 10,
                         },
                       }}
-                      onChange={(e) => setLastName(e.target.value)}
+                      onChange={(e) => setTempLastName(e.target.value)}
                       type="text"
                       required
-                      pattern="[A-Za-z]{3,}"
-                      value={lastName}
+                      value={tempLastName}
                       name="last-name"
                       id="last-name"
                       autoComplete="family-name"
@@ -217,13 +242,12 @@ export default function Contact() {
                           damping: 10,
                         },
                       }}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setTempEmail(e.target.value)}
                       type="email"
                       required
-                      pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
                       name="email"
                       id="email"
-                      value={email}
+                      value={tempEmail}
                       autoComplete="email"
                       className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-n-3 sm:text-sm sm:leading-6"
                     />
@@ -247,12 +271,11 @@ export default function Contact() {
                           damping: 10,
                         },
                       }}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => setTempPhone(e.target.value)}
                       type="tel"
-                      pattern="/^\(\d{3}\)\d{3}-\d{4}$/"
                       name="phone-number"
                       id="phone-number"
-                      value={phone}
+                      value={tempPhone}
                       autoComplete="tel"
                       className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-n-3 sm:text-sm sm:leading-6"
                     />
@@ -276,10 +299,10 @@ export default function Contact() {
                           damping: 10,
                         },
                       }}
-                      onChange={(e) => setMsg(e.target.value)}
+                      onChange={(e) => setTempMsg(e.target.value)}
                       name="message"
                       id="message"
-                      value={msg}
+                      value={tempMsg}
                       rows={4}
                       className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-n-3 sm:text-sm sm:leading-6"
                       defaultValue={""}
